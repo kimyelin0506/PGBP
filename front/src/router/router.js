@@ -3,6 +3,7 @@ import { renderHeader } from "../components/header.js";
 import { renderHome } from "../pages/home/Home.js";
 import { getPath } from "../helper/path.js";
 import { renderApplication } from "../pages/applications/applications.js";
+
 /*
     #/              : Home
     #/applications  : 신청서 작성/조회
@@ -18,7 +19,7 @@ export function router() {
     let container_inner2_content = '';
     switch (getPath()) {
         case '/applications':
-            title_content = '신청서 작성/조회';
+            title_content = '신청서 작성';
             container_inner2_content = renderApplication();
             break;
         case '/approvals':
