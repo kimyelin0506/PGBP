@@ -1,0 +1,6 @@
+# dependencies
+/front/node_modules
+
+# build output
+/dist
+/static/app
