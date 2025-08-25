@@ -7,12 +7,12 @@
     min-width: 200px; /* 라벨 고정 폭 */
   }
 
-  input.notice-input, select.notice-input, input[type=datetime-local], div.notice-input {
+  input.application-input, select.application-input, input[type=datetime-local], div.application-input {
     width: 400px;
     margin: auto;
   }
 
-  .notice-input-div {
+  .application-input-div {
     width: 600px;
     padding: 5px;
     margin: auto;
@@ -22,7 +22,7 @@
     height: 400px;
   }
 
-  .notice-input-btn {
+  .application-input-btn {
     margin-left: auto;
   }
 
