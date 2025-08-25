@@ -1,7 +1,9 @@
 import '../../assets/style/applications.css';
 
 export function renderApplication() {
-    return `
+    const container_inner2 = document.getElementById('container_inner2');
+
+    container_inner2.innerHTML = `
             <div class="application-input-div">
               <label>
                 <span>ID : </span>
@@ -98,4 +100,5 @@ export function renderApplication() {
               <button type="button" id="applicationSubmitBtn">등록하기</button>
           </div>
     `;
+    return container_inner2;
 }

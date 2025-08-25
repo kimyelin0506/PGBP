@@ -3,6 +3,7 @@ import { renderHeader } from "../components/header.js";
 import { renderHome } from "../pages/home/Home.js";
 import { getPath } from "../helper/path.js";
 import { renderApplication } from "../pages/applications/applications.js";
+import { renderApprovals } from "../pages/approvals/approvals.js";
 
 /*
     #/              : Home
@@ -13,17 +14,18 @@ import { renderApplication } from "../pages/applications/applications.js";
 export function router() {
     const header = document.getElementById('header');
     const container_title = document.getElementById('container_title');
-    const container_inner2 = document.getElementById('container_inner2');
+    const container_inner = document.getElementById('container_inner');
 
     let title_content = '';
-    let container_inner2_content = '';
+    let container_inner_content = '';
     switch (getPath()) {
         case '/applications':
             title_content = '신청서 작성';
-            container_inner2_content = renderApplication();
+            container_inner_content = renderApplication();
             break;
         case '/approvals':
             title_content = '승인/반려 현황 조회';
+            container_inner_content = renderApprovals();
             break;
         case '/dashboard':
             title_content = '통계/대시보드';
@@ -31,7 +33,7 @@ export function router() {
         case '/':
         default:
             title_content = "HOME";
-            container_inner2_content = renderHome();
+            container_inner_content = renderHome();
             break;
     }
 
@@ -41,7 +43,7 @@ export function router() {
         ${title_content}
         `;
 
-    container_inner2.innerHTML = `
-        ${container_inner2_content}
+    container_inner.innerHTML = `
+        ${container_inner_content}
         `;
 }
