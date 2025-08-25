@@ -3,6 +3,7 @@ import { renderHeader } from "../components/header.js";
 import { renderHome } from "../pages/home/Home.js";
 import { getPath } from "../helper/path.js";
 import { renderApplication } from "../pages/applications/applications.js";
+
 /*
     #/              : Home
     #/applications  : 신청서 작성/조회
@@ -10,27 +11,37 @@ import { renderApplication } from "../pages/applications/applications.js";
     #/dashboard     : 통계/대시보드
 */
 export function router() {
-    const app = document.getElementById('app');
+    const header = document.getElementById('header');
+    const container_title = document.getElementById('container_title');
+    const container_inner2 = document.getElementById('container_inner2');
 
-    let content = '';
+    let title_content = '';
+    let container_inner2_content = '';
     switch (getPath()) {
         case '/applications':
-            content = renderApplication();
+            title_content = '신청서 작성';
+            container_inner2_content = renderApplication();
             break;
         case '/approvals':
-            content = '<h1>승인/반려 현황 조회</h1><p>공사중</p>';
+            title_content = '승인/반려 현황 조회';
             break;
         case '/dashboard':
-            content = '<h1>통계/대시보드</h1><p>공사중</p>';
+            title_content = '통계/대시보드';
             break;
         case '/':
         default:
-            content = renderHome();
+            title_content = "HOME";
+            container_inner2_content = renderHome();
             break;
     }
 
-    app.innerHTML = `
-        ${renderHeader()}
-        <main>${content}</main>
+    header.innerHTML = ` ${renderHeader()}`;
+
+    container_title.innerHTML = `
+        ${title_content}
+        `;
+
+    container_inner2.innerHTML = `
+        ${container_inner2_content}
         `;
 }
