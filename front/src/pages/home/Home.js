@@ -4,7 +4,10 @@ import '../../assets/style/style.css';
 // Home 렌더링 함수
 export function renderHome() {
   return `
-    <h1>Welcome to the Home Page</h1>
-    <p>This is a simple home page rendered by Home.js</p>
+    <h1>발전 사업 인허가 시스템 소개</h1>
+    <span>이 사이트는 다음과 같은 기능을 제공합니다.</span>
+    <p>신청서 작성/조회</p>
+    <p>승인/반려 현황 조회</p>
+    <p>통계/대시보드</p>
   `;
 }

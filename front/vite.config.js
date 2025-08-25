@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: '.',                // frontend/ 가 루트
-  base: '/static/app/',     // 정적 리소스 기본 경로 (운영 기준)
+  base: '/PGBP/app/',     // 정적 리소스 기본 경로 (운영 기준)
   server: {
     port: 5173,
     open: true,

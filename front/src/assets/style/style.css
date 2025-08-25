@@ -1,1 +1,56 @@
-body { font-family: system-ui, sans-serif; }
+/* 전체 레이아웃 */
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', '맑은 고딕', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* 헤더 */
+header {
+  background-color: #004b8d; /* 공공기관 사이트에서 많이 쓰는 짙은 블루 */
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 헤더 제목 */
+header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 네비게이션 */
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+/* 네비게이션 링크 */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* hover 시 강조 */
+nav a:hover {
+  background-color: #0066cc;
+  color: #fff;
+}
+
+/* 현재 페이지(active) 상태 */
+nav a.active {
+  background-color: #fff;
+  color: #004b8d;
+  font-weight: bold;
+}
