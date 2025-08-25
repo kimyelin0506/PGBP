@@ -1,6 +1,10 @@
 import '../../assets/style/applications.css';
 
-export function renderApplication() {
+export function renderApplicationsInner() {
+    return ``;
+}
+
+export function renderApplicationInner2() {
     return `
             <div class="application-input-div">
               <label>

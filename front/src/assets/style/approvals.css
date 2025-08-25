@@ -1,0 +1,10 @@
+    .approvals-options {
+        display: inline-block;
+    }
+
+    .approvalsTd {
+        max-width: 200px;       /* 최대 너비 지정 */
+        white-space: nowrap;    /* 줄바꿈 안 하고 한 줄만 표시 */
+        overflow: hidden;       /* 넘치는 부분은 숨기기 */
+        text-overflow: ellipsis;/* 넘치는 부분을 … 처리 */
+    }
