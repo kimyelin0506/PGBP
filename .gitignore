@@ -4,3 +4,6 @@
 # build output
 /dist
 /static/app
+
+# modul
+/node_modules/*
