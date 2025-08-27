@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "vanilla-select": "^1.0.25"
+  },
+  "dependencies": {
+    "vanillaselectbox": "github:PhilippeMarcMeyer/vanillaSelectBox"
+  }
+}

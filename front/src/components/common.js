@@ -826,7 +826,7 @@ export function TelNumberformet(obj, key) {
 
     // 서울 지역 번호(02)가 들어오는 경우
     const areaLen = number.startsWith("02") ? 2 : 3; // 서울번호는 2자리, 그 외는 3자리
-    tel = telFormatter(number, areaLen);
+    tel = telFormatterHelper(number, areaLen);
 
     if (key === "1") obj.value = tel;
     else if (key === "2") return tel;
@@ -839,7 +839,7 @@ export function TelNumberformet(obj, key) {
  * @param {number} areaLen - 지역번호 길이 (서울 02 → 2, 그 외 3)
  * @returns {string} 하이픈(-) 포함 포맷된 전화번호
  */
-function telFormatter(number, areaLen) {
+function telFormatterHelper(number, areaLen) {
     let tel = "";
     areaLen += 1;  // 분기점 기준
 
@@ -1210,8 +1210,9 @@ export function setColspan(table, rowIdx) {
     });
 }
 
-import vanillaSelectBox from "vanilla-select-box";
-import "vanilla-select-box/dist/vanillaSelectBox.css";  // 기본 CSS
+// JS와 CSS를 패키지 내부 파일에서 바로 불러옵니다.
+import 'vanillaselectbox/vanillaSelectBox.css';
+import 'vanillaselectbox/vanillaSelectBox.js';
 
 /**
  * 멀티 셀렉트 박스를 초기화합니다.
@@ -1249,7 +1250,7 @@ export function multiSelectBox(ctrlId) {
  */
 export function verifyPhon(phone) {
     const regExp = /^(010)-?[0-9]{3,4}-?[0-9]{4}$/;
-    if (phone.test(regExp)) return true;
+    if (regExp.test(phone)) return true;
 
     alert("휴대폰 번호를 올바르게 적어주시기 바랍니다.");
     return false;
