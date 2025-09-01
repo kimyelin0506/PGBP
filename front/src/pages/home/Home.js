@@ -1,5 +1,7 @@
 // 필요한 CSS를 불러올 수 있음 (Vite는 ESM import로 CSS도 지원)
-import '../../assets/style/style.css';
+// import '../../assets/style/style.css';
+// import "../../assets/style/common_in.css";
+// import "../../assets/style/common_out.css";
 
 // Home 렌더링 함수
 export function renderHomeInner() {

@@ -1,3 +1,24 @@
+
+import { csrfStore } from './csrfStore.js';
+
+function getCookie(name) {
+    return document.cookie
+        .split('; ')
+        .find(row => row.startsWith(name + '='))
+        ?.split('=')[1];
+}
+
+// 레거시 jQuery는 null/undefined를 빈 문자열로 직렬화해서 보냄 -> 방식 통일
+export function toFormLikeJQuery(obj) {
+    const form = new URLSearchParams();
+    for (const [k, v] of Object.entries(obj)) {
+        // jQuery 규칙: null/undefined는 빈 문자열로
+        const val = (v === null || v === undefined) ? '' : String(v);
+        form.append(k, val);
+    }
+    return form;
+}
+
 /**
  * 문자열 템플릿의 {0}, {1}, {2} 형태의 토큰을 실제 값으로 치환합니다.
  * 
@@ -59,33 +80,78 @@ export function getSubmit(url, valueObjects, formtarget){
  * postSubmit("/submit", { userId: 123, name: "Yerin" }, "_self");
  * // => POST /submit (body에 userId=123, name=Yerin, CSRF 토큰 포함)
  */
-export function postSubmit(url, valueObjects, formtarget){
-    
-    /*CSRF Token apply - 2021.04.20*/
-    const token = document.querySelector('meta[name="_csrf"]').getAttribute('content');
-    const tokenName = document.querySelector('meta[name="_csrf_parameter"]').getAttribute('content');
+/**
+ * 동적 <form> POST (CSRF 자동 포함)
+ */
+export function postSubmit(url, valueObjects = {}, formtarget = '_self') {
+    // 1) 토큰/파라미터명 확보 (meta → store → cookie 순)
+    const metaToken = document.querySelector('meta[name="_csrf"]')?.getAttribute('content');
+    const metaParam = document.querySelector('meta[name="_csrf_parameter"]')?.getAttribute('content');
+    const tokenParamName = metaParam || '_csrf';
 
-    valueObjects[tokenName] = token;
-    /*//CSRF Token apply - 2021.04.20*/
+    const token =
+        metaToken ||
+        csrfStore.getToken?.() ||
+        getCookie('XSRF-TOKEN') || // Spring CookieCsrfTokenRepository 기본 쿠키명
+        '';
 
+    // 2) form 구성
     const form = document.createElement('form');
-    
-    for(key in valueObjects) {
+    form.method = 'post';
+    form.action = url;
+    form.target = formtarget;
+
+    // 3) 데이터 바인딩
+    for (const key in valueObjects) {
+        if (!Object.prototype.hasOwnProperty.call(valueObjects, key)) continue;
         const input = document.createElement('input');
         input.type = 'hidden';
         input.name = key;
-        input.value = valueObjects[key];
-        form.append(input);
+        input.value = valueObjects[key] ?? '';
+        form.appendChild(input);
     }
 
-    form.method = 'post';
-    form.target = '_self';
-    form.action = url;
+    // 4) CSRF 파라미터 추가 (토큰이 있으면)
+    if (token) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = tokenParamName;
+        input.value = token;
+        form.appendChild(input);
+    }
 
-    document.body.append(form);
+    document.body.appendChild(form);
     form.submit();
     form.remove();
 }
+
+// export function postSubmit(url, valueObjects, formtarget){
+    
+//     /*CSRF Token apply - 2021.04.20*/
+//     const token = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+//     const tokenName = document.querySelector('meta[name="_csrf_parameter"]').getAttribute('content');
+
+//     valueObjects[tokenName] = token;
+//     /*//CSRF Token apply - 2021.04.20*/
+
+//     const form = document.createElement('form');
+    
+//     for(key in valueObjects) {
+//         const input = document.createElement('input');
+//         input.type = 'hidden';
+//         input.name = key;
+//         input.value = valueObjects[key];
+//         form.append(input);
+//     }
+
+//     form.method = 'post';
+//     form.target = '_self';
+//     form.action = url;
+
+//     document.body.append(form);
+//     form.submit();
+//     form.remove();
+// }
 
 /**
  * 동적으로 <form>을 생성하여 POST 방식으로 데이터를 전송하고,

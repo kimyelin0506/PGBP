@@ -1,5 +1,5 @@
 import '../../assets/style/approvals.css';
-import { tableSet } from '../../components/common.js';
+import { tableSet } from '../../lib/common.js';
 
 export function renderApprovals() {
       // 현재 화면에서 보여줄 테이블 정보의 속성 이름
