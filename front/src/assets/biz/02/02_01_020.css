@@ -1,0 +1,27 @@
+label {
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+    /*gap: 8px; !* 간격 *!*/
+}
+label span {
+    min-width: 200px; /* 라벨 고정 폭 */
+}
+
+input.notice-input, select.notice-input, input[type=datetime-local], div.notice-input {
+    width: 400px;
+    margin: auto;
+}
+
+.notice-input-div {
+    width: 600px;
+    padding: 5px;
+    margin: auto;
+}
+
+textarea {
+    height: 400px;
+}
+
+.notice-input-btn {
+    margin-left: auto;
+}

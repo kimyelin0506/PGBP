@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/* 팝업 상단 */
+.popup_header{position: fixed;top: 0;right: 0;left: 0;height: 35px;background: url(../img/popuptitlebg.png) repeat-y top right;background-color: #03243a;color: #fff;z-index: 2;padding: 15px 20px;}
+.popup_header.ver2{background: none; background-color: #104f9f; height: 40px; padding: 10px 30px 0;}
+
+/* 팝업 타이틀 */
+.popup_title{height: 35px; font-size: 24px; font-weight: 700; line-height: 1.458333;}
+
+/* 상단 우측 관리자 로그인 정보 */
+.popup_user_wrap{position: absolute;top: 50%;right: 20px;height: 35px;margin-top: -17.5px;}
+.popup_user_wrap > .user_list > li{float: left; font-size: 16px; line-height: 2.1875; font-weight: 400;}
+.popup_user_wrap > .user_list > .timer > .timer_button{background: none; background-color: #74c239;}
+
+/* 팝업 콘텐츠 영역 */
+.popup_contents{padding: 85px 20px 80px;}
+.agree_check{padding: 10px 14px; margin-top: 15px; font-size: 14px; line-height: 1.714285; border: 1px solid #bbb; border-radius: 5px;}
+
+/* 팝업 하단 */
+.popup_footer{position: fixed;right: 0;left: 0;bottom: 0;z-index: 1;background-color: #03243a;height: 30px;padding: 15px 20px;box-shadow: 0 -1px 3px 0 rgb(0, 0, 0, 0.12);}
+.popup_footer:after{display:block; content: " "; clear:both;}
+.popup_footer > .left{float: left;}
+.popup_footer > .right{float: right;}
+
+/* 안내사항 팝업관련 */
+.w_p_bg{background: url(../img/warning_popup_bg.png) no-repeat center center; background-size: cover;}
+.warnig_popup_wrap > p{padding: 0 20px; font-size: 24px; line-height: 60px; font-weight: 600; border-top: 4px solid #03243a; border-bottom: 1px solid #bbb; background-color: #fff;}
+.warnig_popup_contents{padding: 20px;}
+.wp_list > li{position: relative;padding-left: 14px;font-size: 16px;line-height: 30px;text-align: justify;}
+.wp_list > li + li{margin-top: 3px;}
+.wp_list > li::before{content: '';position: absolute;top: 13px;left: 0;width: 4px;height: 4px;background-color: #03243a;}
+.wp_list + .wp_list{padding-top: 15px; margin-top: 15px; border-top: 1px solid #f1f1f1;}
+.w_bottom{position: fixed; right: 0; bottom: 0; left: 0; padding: 20px; text-align: right; border-top: 1px solid #bbb; background-color: rgb(250, 250, 250, 0.8);}

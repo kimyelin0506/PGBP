@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/* 관리자용 로그인 페이지에서만 사용하는 css입니다 */
+
+/* 관리자 로그인 body */
+.login_in_body{background: url(../img/login_in_bg.png) no-repeat center 0; background-color: #03243a; background-size: cover;}
+.login_wrap{    width: fit-content;
+min-width: 1000px;}
+
+/* 관리자 로그인 상단 */
+.login_in_header{height: 30px;padding: 15px 30px;margin-bottom: 20px;font-size: 20px;line-height: 1.5;color: #fff;background-color: rgb(3, 36, 68, 0.3);border-bottom: 1px solid rgba(255,255,255,0.3);box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);}
+.login_in_logo{padding-right: 15px; margin-right: 10px; border-right: 1px solid rgba(255,255,255,0.3); vertical-align: top;}
+.login_in_title{display: inline-block; font-size: 22px; line-height: 30px; font-weight: bold; color: #fff; vertical-align: top;}
+
+/* 관리자 로그인 폼 */
+.login_in_form{width: 360px; padding: 20px; margin: 0 auto; background-color: #fff; border-radius: 5px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);}
+.login_in_form_title{padding-bottom: 20px; font-size: 22px; line-height: 27px; font-weight: bold; color: #073c7c; text-align: center;}
+input.login_in_id, input.login_in_pw{height: 50px; padding: 10px; margin-bottom: 10px; font-size: 16px; border: 1px solid #bbb;}
+input.login_in_pw{margin-bottom: 20px;}
+.login_in_button{display: block; width: 100%; height: 60px; padding: 0 20px; font-size: 18px; line-height: 3.333333; font-weight: bold; color: #fff; text-align: center; background: url(../img/popuptitlebg.png) repeat-y top right; background-color: #003691; border: 0; border-radius: 5px; box-sizing: border-box;}
+
+/* 관리자 로그인 페이지 하단 */
+.login_in_footer{position: fixed; right: 0; left: 0; bottom: 0; min-width: 1000px; padding: 15px 25px; font-size: 13px; color: rgba(255,255,255,0.7); text-align: center;border-top: 1px solid rgba(255, 255, 255, 0.15);}

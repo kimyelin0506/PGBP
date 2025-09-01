@@ -1,4 +1,4 @@
-/* 전체 레이아웃 */
+전체 레이아웃
 body {
   margin: 0;
   font-family: 'Noto Sans KR', '맑은 고딕', sans-serif;
@@ -72,6 +72,8 @@ body {
   font-weight: bold;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
 }
 
 /* 메인 컨텐츠 박스 */

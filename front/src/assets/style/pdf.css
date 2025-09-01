@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+/* pdf 레이아웃 */
+@page{
+	size: a4;	
+	margin: 0;
+}
+
+@media print {
+	* {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+	.page-split {
+		height: 0;
+		margin: 0;
+		border: 0;
+		page-break-before: always;
+	}
+	.page-break { page-break-inside:avoid; page-break-after:auto }
+}
+.a4{position: relative; width: 21cm; height: 29.7cm; font-family: "바탕", Batang, "바탕체", BatangChe, serif; margin: 0 auto; padding: 1cm; box-sizing: border-box;}
+.docubd{padding: 100px 50px 50px;height: 100%;box-sizing: border-box;background: url(../img/document_bg.jpg) no-repeat top center;background-size: 100% 100%; }
+.docubdin{height: 100%; position: relative;}
+
+/* 테이블 공통 */
+ul{margin: 0; padding: 0;}
+table{border-collapse: collapse; border-spacing: 0;}
+.txt_l{text-align: left;}
+.txt_c{text-align: center;}
+.txt_r{text-align: right;}
+.txt_j{text-align: justify;}
+.txtl{text-align: left;}
+.txtc{text-align: center;}
+.txtr{text-align: right;}
+.txtj{text-align: justify;}
+.title_txt{display: block;font-size: 40px;font-weight: bold;margin-bottom: 20px;}
+
+/* 테이블1 - 기본 */
+.pdft{width: 100%;}
+.pdft>tbody>tr>td{padding: 15px 0;font-size: 18px;}
+.fix_info{margin: 0;font-size: 26px;line-height: 2;text-align: justify;}
+
+/* 테이블2 - 하단부 직인 */
+.pdft2{width: 100%; position: absolute; left: 0; bottom: 0; z-index: 1;}
+.pdft2>tbody>tr>td{padding: 20px 0; font-size:20px;}
+.stamp{position: relative;line-height: 100px;font-size: 34px;font-weight: bold;margin: 0;text-align: center;}
+.stamp_img{position: absolute;right: 80px;bottom: 0;z-index: -1;}
+.stamp > span{display: inline-block; padding-left: 43px; background: url(../img/tlogo.png) no-repeat left center;}
+
+/* 테이블3 - 테이블 내부 사용 */
+.pdft3{width: 100%;}
+.pdft3>thead>tr>td, .pdft3>tbody>tr>td{padding: 8px 0;font-size:16px;border: 1px solid #000;}
+.pdft3>thead>tr>td:first-child, .pdft3>tbody>tr>td:first-child{border-left: 0;}
+.pdft3>thead>tr>td:last-child, .pdft3>tbody>tr>td:last-child{border-right: 0;}
+
+/*인쇄하기 버튼*/
+.pdf_print_button{position: absolute;top: 12px;right: 12px;padding: 0 15px 0 39px;line-height: 40px;color: #fff;background: url(../img/print.png) no-repeat left 15px center;background-color: #247be6;border-radius: 5px;}
+
+/* 문서 테이블1 */
+.check_table1{width: 100%;}
+.check_table1 th, .check_table1 td{padding: 8px; font-size: 17px; line-height: 26px; border: 1px solid #000;}
+.check_table1 th.title{font-size: 27px; line-height: 36px;}
+.cinfo_wrap{padding: 10px;}
+.cinfo_list > li{position: relative; padding-left: 20px; list-style: none; line-height: 28px;}
+.cinfo_list > li + li{margin-top: 15px;}
+.cinfo_list > li > i{position: absolute; top: 0; left: 0; font-style: normal;}
+.cinfo_p{margin: 40px 0; text-align: center;}
+.cinfo_p.cstamp{margin: 0; font-size: 22px; font-weight: 600; line-height: 100px; background: url(../img/stamp.jpg) no-repeat top right 170px;}
+
+/* 문서 테이블2 */
+.check_table2{width: 100%;}
+.check_table2 th, .check_table2 td{padding: 5px; font-size: 17px; line-height: 22px; border: 1px solid #000;}
+.cpart + .cpart{margin-top: 40px;}
+
+/*효원 추가*/
+.cpart > h2 {margin:revert;}
+
+/* 세부내역서 타이틀 */
+.ct2_title{padding: 8px; font-size: 27px; line-height: 36px; text-align: center; border: 1px solid #000;}

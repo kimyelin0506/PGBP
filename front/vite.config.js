@@ -7,9 +7,8 @@ export default defineConfig({
     port: 5173,
     open: true,
     proxy: {
-      // 개발 중 API를 톰캣으로 프록시 (포트/컨텍스트 맞춰 수정)
-      '/biz':    { target: 'http://localhost:8080/PINS', changeOrigin: true },
-      '/common': { target: 'http://localhost:8080/PINS', changeOrigin: true }
+         // 프론트에서 '/PINS/...' 로 부르면 백엔드 8080으로 프록시(자동 설정)
+      '/PINS': { target: 'http://localhost:8080', changeOrigin: true },
     }
   },
   build: {
