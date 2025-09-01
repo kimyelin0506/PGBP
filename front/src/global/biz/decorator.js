@@ -7,6 +7,7 @@ import { notice } from '../../pages/biz/02/02.config.js';
 
 (async () => {
   try {
+    if (csrfStore.getToken()) return; // 이미 있으면 재호출 방지 (HMR 대비)
     const csrfResp = await fetch('/PINS/biz/getCsrfToken.do', {
       method: 'POST',
       credentials: 'include'

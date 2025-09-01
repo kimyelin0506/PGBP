@@ -102,7 +102,7 @@ export function router() {
                                     userStore.getUser().USER_ROLE, formatDate(new Date()));
             init02_01_020();
             break;
-        case '/':
+        case '/biz/99/99_01_010.do':
             title = '공단 사용자 목록';
             
             s.col2.innerHTML = render99_01_010Container_Inner2();
